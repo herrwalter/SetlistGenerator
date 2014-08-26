@@ -55,6 +55,8 @@ class Autoloader {
             CONTROLLER_PATH,
             ENTITY_PATH,
             RESOURCES_PATH,
+            ERROR_PATH,
+            VIEW_PATH
         );
         foreach($coreFolders as $folder){
             $path = str_replace(array('/', '\\'), array('', ''), $path);
@@ -73,6 +75,8 @@ class Autoloader {
     public function loadLibraries(){
         // twig
         require_once LIBRARY_PATH.DIRECTORY_SEPARATOR.'Twig'.DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'Twig'.DIRECTORY_SEPARATOR.'Autoloader.php';
+        Twig_Autoloader::register();
+        
     }
     
 }

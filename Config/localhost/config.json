@@ -1,3 +1,4 @@
 {
-    "test":"wouter"
+    "debug" : "true",
+    "template-path":"/Resources/Templates"
 }

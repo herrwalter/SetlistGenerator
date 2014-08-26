@@ -18,6 +18,8 @@ define('RESOURCES_PATH', dirname(__FILE__) . '/Resources');
 define('CONTROLLER_PATH', dirname(__FILE__) . '/Controller');
 define('ENTITY_PATH', dirname(__FILE__) . '/Entity');
 define('PUBLIC_PATH', dirname(__FILE__) . '/Public');
+define('ERROR_PATH', dirname(__FILE__) . '/Error');
+define('VIEW_PATH', dirname(__FILE__) . '/View');
 
 
 /**
