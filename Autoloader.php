@@ -33,6 +33,9 @@ class Autoloader {
      * @param type $className
      */
     public function core($className){
+        if( strpos($className, 'Twig_') !== false ){
+            return;
+        }
         $fileScanner = new FileScanner( DOCUMENT_ROOT );
         $files = $fileScanner->getFilesInOneDimensionalArray();
         // exclude folders.

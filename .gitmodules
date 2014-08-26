@@ -1,0 +1,10 @@
+[submodule "Twig"]
+	path = Twig
+	url = https://github.com/fabpot/Twig.git
+	branch = origin/v1.16.0
+[submodule "Library/--force"]
+	path = Library/--force
+	url = https://github.com/fabpot/Twig.git
+[submodule "Library/Twig"]
+	path = Library/Twig
+	url = https://github.com/fabpot/Twig.git

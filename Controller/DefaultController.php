@@ -9,9 +9,8 @@
 class DefaultController extends AController {
     
     public function defaultAction() {
-        
         $view = new IndexView();
-        $view->render(array('asdf'));
+        $view->render();
     }
     
     public function helloWorld(){
