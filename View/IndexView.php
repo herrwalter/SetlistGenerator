@@ -14,7 +14,7 @@ class IndexView extends AView {
      */
     public function render($parameters = array()) {
         //$this->validateParameters($parameters);
-        $this->template->render($parameters);
+        echo $this->template->render($parameters);
     }
     
     /**

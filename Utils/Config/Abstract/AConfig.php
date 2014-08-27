@@ -24,6 +24,10 @@ abstract class AConfig {
      */
     protected static $self;
     
+    public function __construct(){
+        self::$self = $this;
+    }
+    
     /**
      * Singleton method
      * @return AConfig

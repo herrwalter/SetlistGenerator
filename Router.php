@@ -31,14 +31,21 @@ class Router {
                          explode('/', $this->request->getUri()
                      )));
     }
+    
+    /**
+     * Get setted uri
+     * @return array
+     */
+    public function getUri(){
+        return $this->uri;
+    }
 
     /**
      * Routes the request
      */
     protected function route() {
-        $offset = $this->getOffset();
-        $controllerName = $this->getController($offset);
-        $action = $this->getAction($offset);
+        $controllerName = $this->getController();
+        $action = $this->getAction();
 
         $controller = new $controllerName($this->request);
         $controller->$action();
@@ -48,7 +55,7 @@ class Router {
      * Gets the uri offset, this is 1 when it is localhost.
      * @return int 
      */
-    protected function getOffset() {
+    public function getOffset() {
         if (ENVIRONMENT == 'localhost') {
             return 1;
         }
@@ -59,9 +66,11 @@ class Router {
      * Will get the controller based on the request
      * @return string requested controller
      */
-    protected function getController($offset = 0) {
-        if(array_key_exists(0 + $offset, $this->uri)){
-            return ucfirst($this->uri[0 + $offset]) . 'Controller';
+    public function getController() {
+        $offset = $this->getOffset();
+        $uri = $this->getUri();
+        if(array_key_exists(0 + $offset, $uri)){
+            return ucfirst($uri[0 + $offset]) . 'Controller';
         }
         return 'DefaultController';
     }
@@ -70,8 +79,10 @@ class Router {
      * Gets the action of the controller based on the request
      * @return string requested action
      */
-    protected function getAction($offset = 0) {
-        $uri = $this->uri;
+    
+    public function getAction() {
+        $offset = $this->getOffset();
+        $uri = $this->getUri();
         if (count($uri) > 1 + $offset) {
             return $uri[1 + $offset];
         }
@@ -82,7 +93,8 @@ class Router {
      * Will get the extra get parameters from the uri
      * @return array
      */
-    protected function getUriParameters($offset = 0) {
+    public function getUriParameters() {
+        $offset = $this->getOffset();
         $uri = explode('/', $this->request->getUri());
         // if the array is greater then the action and controller, we have some extra parameters
         if (count($uri) > 2 + $offset) {

@@ -19,10 +19,10 @@ class JSONConfig extends AConfig {
             throw new ApplicationError('Config path not set, please set it with "setConfigPath"');
         }
         if (!file_exists($this->configPath)) {
-            throw new ApplicationError('Config path is does not exist, please point to the right file');
+            throw new ApplicationError('Config path does not exist, please point to the right file');
         }
         if (!is_readable($this->configPath)) {
-            throw new ApplicationError('Config path if not readable, please make it readable.');
+            throw new ApplicationError('Config path is not readable, please make it readable.');
         }
         
         try{
