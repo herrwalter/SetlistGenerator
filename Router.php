@@ -95,7 +95,7 @@ class Router {
      */
     public function getUriParameters() {
         $offset = $this->getOffset();
-        $uri = explode('/', $this->request->getUri());
+        $uri = $this->getUri();
         // if the array is greater then the action and controller, we have some extra parameters
         if (count($uri) > 2 + $offset) {
             $i = 2 + $offset;
